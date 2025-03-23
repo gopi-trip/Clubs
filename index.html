@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Clubs</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="./membership.png" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo-section">
+                <div class="college-branding">
+                    <img src="National_Institute_of_Technology,_Manipur_logo.png" alt="National Institute of Technology Manipur" class="college-logo">
+                    <div class="college-name">National Institute of Technology Manipur</div>
+                </div>
+                <div class="join-clubs">
+                    <a href="#" class="join-button">Join a Club</a>
+                </div>
+            </div>
+            <nav class="clubs-nav">
+                <ul class="clubs-list">
+                    <li class="active"><a href="https://www.nitmanipur.ac.in/" target="_blank">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Academic Clubs ▾</a>
+                        <div class="dropdown-content">
+                            <a href="#">Computer Science Club</a>
+                            <a href="#">Biology Society</a>
+                            <a href="#">Mathematics Association</a>
+                            <a href="#">Engineering Club</a>
+                            <a href="#">Business Leadership</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Sports Clubs ▾</a>
+                        <div class="dropdown-content">
+                            <a href="#">Basketball Team</a>
+                            <a href="#">Soccer Club</a>
+                            <a href="#">Swimming Team</a>
+                            <a href="#">Tennis Club</a>
+                            <a href="#">Track & Field</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Creative Arts ▾</a>
+                        <div class="dropdown-content">
+                            <a href="#">Drama Club</a>
+                            <a href="#">Music Ensemble</a>
+                            <a href="#">Photography Society</a>
+                            <a href="#">Art & Design Club</a>
+                            <a href="#">Creative Writing Circle</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Events ▾</a>
+                        <div class="dropdown-content">
+                            <a href="#">Intra NIT</a>
+                            <a href="#">Cultural Nights</a>
+                            <a href="#">Workshops & Seminars</a>
+                        </div>
+                    </li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main class="container content">
+        <h1>Welcome to National Institute of Technology Manipur Clubs</h1>
+        <p>Explore our diverse range of student clubs and organizations. Whether you're interested in academics, sports, or creative arts, there's something for everyone at NIT Manipur.</p>
+        <br>
+        <p>Click on any of the club categories in the header to learn more about specific clubs and how to get involved.</p>
+    </main>
+
+    <script>
+        // Get all dropdown buttons
+        var dropdownBtns = document.querySelectorAll('.dropbtn');
+        
+        // Add click event to each dropdown button
+        dropdownBtns.forEach(function(btn) {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault(); // Prevent navigation
+                
+                // Close all other open dropdowns
+                dropdownBtns.forEach(function(otherBtn) {
+                    if (otherBtn !== btn) {
+                        otherBtn.parentElement.classList.remove('active-dropdown');
+                    }
+                });
+                
+                // Toggle current dropdown
+                this.parentElement.classList.toggle('active-dropdown');
+            });
+        });
+        
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.matches('.dropbtn')) {
+                dropdownBtns.forEach(function(btn) {
+                    btn.parentElement.classList.remove('active-dropdown');
+                });
+            }
+        }, true);
+    </script>
+</body>
+</html>

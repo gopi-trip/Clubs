@@ -1,0 +1,188 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+}
+
+/* Header styles */
+header {
+    background-color:rgb(166, 40, 38);
+    color: white;
+    padding: 1rem 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Logo and top section */
+.logo-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.college-branding {
+    display: flex;
+    align-items: center;
+}
+
+.college-logo {
+    height: 80px;
+    width: auto;
+    margin-right: 15px;
+}
+
+.college-name {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.join-button {
+    color: white;
+    text-decoration: none;
+    background-color: #ff6600;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+/* Navigation menu */
+.clubs-nav {
+    background-color: #002244;
+    border-radius: 6px;
+    overflow: visible; /* Changed from hidden to allow dropdowns to overflow */
+}
+
+.clubs-list {
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+    position: relative; /* Establish positioning context */
+}
+
+.clubs-list li {
+    position: relative;
+}
+
+.clubs-list a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 1rem 1.2rem;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+.clubs-list a:hover {
+    background-color: #004488;
+}
+
+.clubs-list li.active a {
+    background-color: #004488;
+}
+
+/* Dropdown styles - now uses JS activation instead of hover */
+.dropdown {
+    position: relative;
+}
+
+.dropbtn {
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #003366;
+    min-width: 200px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 10;
+    left: 0;
+    top: 100%;
+}
+
+/* This is the new class that JavaScript will toggle */
+.active-dropdown .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    padding: 0.8rem 1.2rem;
+    display: block;
+    border-bottom: 1px solid #002244;
+}
+
+.dropdown-content a:hover {
+    background-color: #004488;
+}
+
+/* Main content area */
+.content {
+    padding: 2rem 0;
+}
+
+.content h1 {
+    margin-bottom: 1rem;
+    color: #003366;
+}
+
+
+.join-button:hover{
+    background-color:rgb(184, 76, 3);
+    transition: background-color 0.3s
+}
+
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .clubs-list {
+        flex-direction: column;
+    }
+    
+    .dropdown-content {
+        position: static;
+        box-shadow: none;
+        width: 100%;
+    }
+    
+    .clubs-list a {
+        padding: 0.8rem 1rem;
+    }
+
+    .college-branding {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .college-logo {
+        margin-bottom: 10px;
+        height: 50px;
+    }
+    
+    .college-name {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-section {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .join-clubs {
+        margin-top: 15px;
+        align-self: flex-start;
+    }
+}
