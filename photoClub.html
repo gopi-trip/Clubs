@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photography Society - College Clubs</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="./pictures/membership.png" type="image/x-icon">
+    <style>
+        /* Additional styles for the photography club page */
+       .club-header {
+    background-image: url('./pictures/photoClubHeader.avif');
+    background-size: cover;
+    background-position: center;
+    /* Add a semi-transparent overlay to ensure text readability */
+    background-color: rgba(240, 240, 240, 0.8);
+    background-blend-mode:color-burn;
+    /* Rest of your existing styles */
+}
+
+        .club-logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            background-color: #002244;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: white;
+            font-size: 2.5rem;
+        }
+
+        .club-name {
+            font-size: 2.2rem;
+            color: #003366;
+            margin-bottom: 0.5rem;
+        }
+
+        .club-tagline {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .club-overview {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .club-description {
+            flex: 2;
+            min-width: 300px;
+        }
+
+        .club-details {
+            flex: 1;
+            min-width: 250px;
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .detail-item {
+            margin-bottom: 1rem;
+        }
+
+        .detail-item h4 {
+            color: #003366;
+            margin-bottom: 0.3rem;
+            font-weight: 600;
+        }
+
+        .photo-gallery {
+            margin-top: 3rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .gallery-item {
+            height: 200px;
+            background-color: #eee;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+        }
+
+        .join-section {
+            margin-top: 3rem;
+            text-align: center;
+            padding: 2rem;
+            background-color: #f0f0f0;
+            border-radius: 8px;
+        }
+
+        .join-club-btn {
+            background-color: #ff6600;
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 1rem;
+            transition: background-color 0.3s;
+        }
+
+        .join-club-btn:hover {
+            background-color: rgb(184, 76, 3);
+        }
+
+        .upcoming-events {
+            margin-top: 3rem;
+        }
+
+        .event-list {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+
+        .event-item {
+            padding: 1.2rem;
+            margin-bottom: 1rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+        }
+
+        .event-date {
+            background-color: #003366;
+            color: white;
+            min-width: 70px;
+            height: 70px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1.5rem;
+        }
+
+        .event-date .day {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .event-date .month {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        .event-details h4 {
+            margin-bottom: 0.5rem;
+            color: #003366;
+        }
+
+        @media (max-width: 768px) {
+            .club-overview {
+                flex-direction: column;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+            
+            .event-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .event-date {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo-section">
+                <div class="college-branding">
+                    <img src="./pictures/National_Institute_of_Technology,_Manipur_logo.png" alt="National Institute of Technology Manipur" class="college-logo">
+                    <div class="college-name">National Institute of Technology Manipur</div>
+                </div>
+                <div class="join-clubs">
+                    <a href="#" class="join-button">Join a Club</a>
+                </div>
+            </div>
+            <nav class="clubs-nav">
+                <ul class="clubs-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Academic Clubs ▾</a>
+                        <div class="dropdown-content">
+                            <a href="#">Computer Science Club</a>
+                            <a href="#">Biology Society</a>
+                            <a href="#">Mathematics Association</a>
+                            <a href="#">Engineering Club</a>
+                            <a href="#">Business Leadership</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Sports Clubs ▾</a>
+                        <div class="dropdown-content">
+                            <a href="#">Basketball Team</a>
+                            <a href="#">Soccer Club</a>
+                            <a href="#">Swimming Team</a>
+                            <a href="#">Tennis Club</a>
+                            <a href="#">Track & Field</a>
+                        </div>
+                    </li>
+                    <li class="dropdown active">
+                        <a href="#" class="dropbtn">Creative Arts ▾</a>
+                        <div class="dropdown-content">
+                            <a href="#">Drama Club</a>
+                            <a href="#">Music Ensemble</a>
+                            <a href="photography-club.html" class="active">Photography Society</a>
+                            <a href="#">Art & Design Club</a>
+                            <a href="#">Creative Writing Circle</a>
+                        </div>
+                    </li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main class="container content">
+        <div class="club-header">
+            <div class="club-logo">📷</div>
+            <h1 class="club-name">Photography Society</h1>
+            <p class="club-tagline">Capturing moments, preserving memories</p>
+        </div>
+        
+        <div class="club-overview">
+            <div class="club-description">
+                <h2>About the Photography Society</h2>
+                <p>The Photography Society at NIT Manipur is a vibrant community of student photographers passionate about capturing the world through their lenses. Founded in 2025, our club welcomes everyone from beginners to advanced photographers.</p>
+                <p>We believe in learning through practice and collaboration. Our members gain hands-on experience in various photography genres including portrait, landscape, street, event, macro, and architectural photography.</p>
+                <p>Whether you're looking to pursue photography professionally or simply enjoy it as a hobby, our society provides the resources, guidance, and community to help you grow as a photographer.</p>
+            </div>
+            
+            <div class="club-details">
+                <h3>Club Information</h3>
+                <div class="detail-item">
+                    <h4>Student Coordinators</h4>
+                    <p>Aditya Singh (President)<br>
+                    Priya Sharma (Secretary)<br>
+                    Mohan Das (Treasurer)</p>
+                </div>
+                
+                <div class="detail-item">
+                    <h4>Email</h4>
+                    <p>photography.society@nitmanipur.ac.in</p>
+                </div>
+                
+                <div class="detail-item">
+                    <h4>Social Media</h4>
+                    <p>Instagram: @nitm_photosociety<br>
+                    Facebook: NIT Manipur Photography</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="photo-gallery">
+            <h2>Our Gallery</h2>
+            <p>Here are some of the best photographs taken by our members.</p>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">Photo 1</div>
+                <div class="gallery-item">Photo 2</div>
+                <div class="gallery-item">Photo 3</div>
+                <div class="gallery-item">Photo 4</div>
+                <div class="gallery-item">Photo 5</div>
+                <div class="gallery-item">Photo 6</div>
+            </div>
+        </div>
+        
+      
+        <div class="join-section">
+            <h2>Join Our Society</h2>
+            <p>Interested in photography and want to develop your skills? Join the NIT Manipur Photography Society today!</p>
+            <p>No expensive equipment needed - just bring your passion and creativity.</p>
+            <a href="#" class="join-club-btn">Apply for Membership</a>
+        </div>
+    </main>
+
+    <script>
+        // Get all dropdown buttons
+        var dropdownBtns = document.querySelectorAll('.dropbtn');
+        
+        // Add click event to each dropdown button
+        dropdownBtns.forEach(function(btn) {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault(); // Prevent navigation
+                
+                // Close all other open dropdowns
+                dropdownBtns.forEach(function(otherBtn) {
+                    if (otherBtn !== btn) {
+                        otherBtn.parentElement.classList.remove('active-dropdown');
+                    }
+                });
+                
+                // Toggle current dropdown
+                this.parentElement.classList.toggle('active-dropdown');
+            });
+        });
+        
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.matches('.dropbtn')) {
+                dropdownBtns.forEach(function(btn) {
+                    btn.parentElement.classList.remove('active-dropdown');
+                });
+            }
+        }, true);
+    </script>
+</body>
+</html>
