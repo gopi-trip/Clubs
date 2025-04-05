@@ -26,12 +26,13 @@ const registerUser = asyncHandler(async (req, res) => {
     throw new ApiError(409, "User with this email or enrollment number already exists");
   }
 
-  // Check for ID card file
-  const idCardLocalPath = req.files?.idCard?.[0]?.path;
+
+// idCard file checking part
+const idCardLocalPath = req.files?.idCard?.[0]?.path;
   
-  if (!idCardLocalPath) {
-    throw new ApiError(400, "ID Card file is required");
-  }
+if (!idCardLocalPath) {
+  throw new ApiError(400, "ID Card file is required");
+}
 
   // Upload ID card to cloudinary
   const idCard = await uploadOnCloudinary(idCardLocalPath);

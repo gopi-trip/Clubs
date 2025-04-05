@@ -268,6 +268,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Form submission handling
    // Form submission handling
+// Replace the existing form submission code in registration.js with this:
 registrationForm.addEventListener('submit', function(e) {
     e.preventDefault();
     
@@ -281,22 +282,41 @@ registrationForm.addEventListener('submit', function(e) {
             clubsChecked.push(checkbox.value);
         });
         
-        // Prepare data for API
-        const requestData = {
-            fullName: document.getElementById('fullName').value,
-            email: document.getElementById('email').value,
-            phone: document.getElementById('phone').value,
-            enrollmentNumber: document.getElementById('enrollmentNumber').value,
-            clubs: clubsChecked
-        };
+        // Create FormData object for file upload
+        const formData = new FormData();
+        
+        // Add text fields
+        formData.append('fullName', document.getElementById('fullName').value);
+        formData.append('email', document.getElementById('email').value);
+        formData.append('phoneNumber', document.getElementById('phone').value);
+        formData.append('enrollmentNumber', document.getElementById('enrollmentNumber').value);
+        formData.append('courseType', formatCourseType(document.getElementById('courseType').value));
+        
+        // Handle semester/year based on course type
+        const semesterValue = document.getElementById('semester').value;
+        if (document.getElementById('courseType').value === 'phd') {
+            formData.append('year', semesterValue);
+            formData.append('semester', '0'); // Set default semester for PhD
+        } else {
+            formData.append('semester', semesterValue);
+            formData.append('year', calculateYear(document.getElementById('courseType').value, semesterValue));
+        }
+        
+        // Add clubs array
+        clubsChecked.forEach(club => {
+            formData.append('clubs', club);
+        });
+        
+        // Add file upload
+        const idCardFile = document.getElementById('idCardUpload').files[0];
+        if (idCardFile) {
+            formData.append('idCard', idCardFile);
+        }
         
         // Make API request
-        fetch('/api/join-club', {
+        fetch('/api/v1/users/register', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(requestData)
+            body: formData // Don't set Content-Type header, browser will set it with boundary
         })
         .then(response => response.json())
         .then(data => {
@@ -312,8 +332,7 @@ registrationForm.addEventListener('submit', function(e) {
                 setTimeout(function() {
                     window.location.href = 'index.html';
                 }, 3000);
-            }
-             else {
+            } else {
                 // Show error message
                 statusError.textContent = data.message || 'An error occurred while processing your request.';
                 statusError.style.display = 'block';
@@ -330,6 +349,28 @@ registrationForm.addEventListener('submit', function(e) {
         });
     }
 });
+
+// Helper functions to format data
+function formatCourseType(courseType) {
+    const courseTypeMap = {
+        'btech': 'B.Tech',
+        'mtech': 'M.Tech',
+        'msc': 'MSc',
+        'phd': 'Ph.D'
+    };
+    return courseTypeMap[courseType] || courseType;
+}
+
+function calculateYear(courseType, semester) {
+    // Calculate year based on semester
+    const semesterNum = parseInt(semester);
+    if (courseType === 'btech') {
+        return Math.ceil(semesterNum / 2);
+    } else if (courseType === 'mtech' || courseType === 'msc') {
+        return Math.ceil(semesterNum / 2);
+    }
+    return 1; // Default
+}
     
     // Add real-time validation for inputs
     const fullName = document.getElementById('fullName');

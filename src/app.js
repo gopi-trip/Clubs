@@ -20,6 +20,7 @@ app.use(express.urlencoded({extended: true,limit: "200kb"}))
 app.use(express.static("public"))
 
 // Routes
+import userRoutes from './routes/users.route.js'
 app.use("/api/v1/users", userRoutes);
 
 // Error Handling Middleware
