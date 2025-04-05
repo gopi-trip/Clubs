@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club Registration - NIT Manipur</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./regsitration.css">
+    <link rel="shortcut icon" href="./pictures/membership.png" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo-section">
+                <div class="college-branding">
+                    <img src="./pictures/National_Institute_of_Technology,_Manipur_logo.png" alt="National Institute of Technology Manipur" class="college-logo">
+                    <div class="college-name">National Institute of Technology Manipur</div>
+                </div>
+                <div class="join-clubs">
+                    <a href="registration.html" class="join-button" id="joinClubBtn">Join a Club</a>
+                </div>
+            </div>
+            <nav class="clubs-nav">
+                <ul class="clubs-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Clubs ▾</a>
+                        <div class="dropdown-content">
+                            <a href="computer-science-club.html">QUBIT Club</a>
+                            <a href="mathematics-association.html">Cygnus Club</a>
+                            <a href="engineering-club.html">Pixel Club</a>
+                            <a href="biology-society.html">Inertia Club</a>
+                            <a href="biology-society.html">Reverb Collective Club</a>
+                            <a href="biology-society.html">Sports Club</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">ReGen ▾</a>
+                        <div class="dropdown-content">
+                            <a href="computer-science-club.html">2025</a>
+                        </div>
+                    </li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main class="container registration-container">
+        <h1>Club Registration</h1>
+        
+        <!-- Progress bar -->
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress" id="progressBar"></div>
+            </div>
+            <div class="progress-steps">
+                <div class="step active" id="step1">Phase 1</div>
+                <div class="step" id="step2">Phase 2</div>
+                <div class="step" id="step3">Phase 3</div>
+            </div>
+        </div>
+        
+        <!-- Status messages -->
+        <div id="statusSuccess" class="status-message status-success"></div>
+        <div id="statusError" class="status-message status-error"></div>
+        
+        <form id="registrationForm">
+            <!-- Phase 1: Personal Information -->
+            <div class="form-phase" id="phase1">
+                <h2>Personal Information</h2>
+                
+                <div class="form-group">
+                    <label for="fullName">Full Name*</label>
+                    <input type="text" id="fullName" name="fullName" class="form-control" required>
+                    <div class="error-message" id="nameError">Please enter your full name</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address*</label>
+                    <input type="email" id="email" name="email" class="form-control" required>
+                    <div class="error-message" id="emailError">Please enter a valid email address</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone Number*</label>
+                    <input type="tel" id="phone" name="phone" class="form-control" required>
+                    <div class="error-message" id="phoneError">Please enter a valid 10-digit phone number</div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Select Clubs* (You can select multiple)</label>
+                    <div class="club-options">
+                        <div class="club-option">
+                            <input type="checkbox" id="qubitClub" name="clubs" value="QUBIT">
+                            <label for="qubitClub">QUBIT Club</label>
+                        </div>
+                        <div class="club-option">
+                            <input type="checkbox" id="cygnusClub" name="clubs" value="Cygnus">
+                            <label for="cygnusClub">Cygnus Club</label>
+                        </div>
+                        <div class="club-option">
+                            <input type="checkbox" id="pixelClub" name="clubs" value="Pixel">
+                            <label for="pixelClub">Pixel Club</label>
+                        </div>
+                        <div class="club-option">
+                            <input type="checkbox" id="sportsClub" name="clubs" value="Sports">
+                            <label for="sportsClub">Sports Club</label>
+                        </div>
+                        <div class="club-option">
+                            <input type="checkbox" id="reverbClub" name="clubs" value="Reverb">
+                            <label for="reverbClub">Reverb Collective</label>
+                        </div>
+                    </div>
+                    <div class="error-message" id="clubsError">Please select at least one club</div>
+                </div>
+                
+                <div class="form-navigation">
+                    <button type="button" class="next-btn" id="phase1Next">Next</button>
+                </div>
+            </div>
+            
+            <!-- Phase 2: Academic Information -->
+            <div class="form-phase" id="phase2">
+                <h2>Academic Information</h2>
+                
+                <div class="form-group">
+                    <label for="courseType">Course Type*</label>
+                    <select id="courseType" name="courseType" class="form-control" required>
+                        <option value="">Select your course</option>
+                        <option value="btech">B.Tech</option>
+                        <option value="mtech">M.Tech</option>
+                        <option value="msc">M.Sc</option>
+                        <option value="phd">Ph.D</option>
+                    </select>
+                    <div class="error-message" id="courseTypeError">Please select your course type</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="branch">Branch*</label>
+                    <select id="branch" name="branch" class="form-control" required>
+                        <option value="">Select your branch</option>
+                        <option class="branch-option eng-branch" value="cse">Computer Science & Engineering</option>
+                        <option class="branch-option eng-branch" value="ece">Electronics & Communication Engineering</option>
+                        <option class="branch-option eng-branch" value="ee">Electrical Engineering</option>
+                        <option class="branch-option eng-branch" value="me">Mechanical Engineering</option>
+                        <option class="branch-option eng-branch" value="ce">Civil Engineering</option>
+                        <option class="branch-option sci-branch" value="physics">Physics</option>
+                        <option class="branch-option sci-branch" value="chemistry">Chemistry</option>
+                        <option class="branch-option sci-branch" value="mathematics">Mathematics</option>
+                        <option class="branch-option sci-branch" value="hss">Humanities and Social Sciences</option>
+                    </select>
+                    <div class="error-message" id="branchError">Please select your branch</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="semester">Semester*</label>
+                    <select id="semester" name="semester" class="form-control" required>
+                        <option value="">Select your current semester</option>
+                        <!-- Dynamically populated based on course type -->
+                    </select>
+                    <div class="error-message" id="semesterError">Please select your semester</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="enrollmentNumber">Enrollment Number*</label>
+                    <input type="text" id="enrollmentNumber" name="enrollmentNumber" class="form-control" required>
+                    <div class="error-message" id="enrollmentError">Please enter your enrollment number</div>
+                </div>
+                
+                <div class="form-navigation">
+                    <button type="button" class="back-btn" id="phase2Back">Back</button>
+                    <button type="button" class="next-btn" id="phase2Next">Next</button>
+                </div>
+            </div>
+            
+            <!-- Phase 3: Document Upload -->
+            <div class="form-phase" id="phase3">
+                <h2>Document Upload</h2>
+                
+                <div class="form-group">
+                    <label for="idCardUpload">ID Card Upload*</label>
+                    <div class="file-upload-container">
+                        <input type="file" id="idCardUpload" name="idCardUpload" class="file-input" accept="image/*" required>
+                        <label for="idCardUpload" class="file-upload-btn" style="color: white;">Choose File</label>
+                        <span id="fileChosen">No file chosen</span>
+                    </div>
+                    <div class="error-message" id="idCardError">Please upload your ID card</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="agreement">
+                        <input type="checkbox" id="agreement" name="agreement" required>
+                        I hereby declare that all the information provided is true to the best of my knowledge
+                    </label>
+                    <div class="error-message" id="agreementError">You must agree to the declaration</div>
+                </div>
+                
+                <div class="form-navigation">
+                    <button type="button" class="back-btn" id="phase3Back">Back</button>
+                    <button type="submit" class="submit-btn">Complete Registration</button>
+                    <div id="loadingSpinner" class="spinner"></div>
+                </div>
+            </div>
+        </form>
+    </main>
+    
+    <script src="registration.js"></script>
+</body>
+</html>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIT Manipur</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="./pictures/membership.png" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo-section">
+                <div class="college-branding">
+                    <img src="./pictures/National_Institute_of_Technology,_Manipur_logo.png" alt="National Institute of Technology Manipur" class="college-logo">
+                    <div class="college-name">National Institute of Technology Manipur</div>
+                </div>
+                <div class="join-clubs">
+                    <a href="registration.html" class="join-button" id="joinClubBtn">Join a Club</a>
+                </div>
+            </div>
+            <nav class="clubs-nav">
+                <ul class="clubs-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Clubs ▾</a>
+                        <div class="dropdown-content">
+                            <a href="computer-science-club.html">QUBIT Club</a>
+                            <a href="mathematics-association.html">Cygnus Club</a>
+                            <a href="engineering-club.html">Pixel Club</a>
+                            <a href="biology-society.html">Inertia Club</a>
+                            <a href="biology-society.html">Reverb Collective Club</a>
+                            <a href="biology-society.html">Sports Club</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">ReGen ▾</a>
+                        <div class="dropdown-content">
+                            <a href="computer-science-club.html">2025</a>
+                        </div>
+                    </li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Join Club Modal -->
+    <div id="joinClubModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close-btn">&times;</span>
+                <h2>Join NIT Manipur Clubs</h2>
+            </div>
+            
+            <!-- Status messages -->
+            <div id="statusSuccess" class="status-message status-success"></div>
+            <div id="statusError" class="status-message status-error"></div>
+            
+            <form id="joinClubForm">
+                <div class="form-group">
+                    <label for="fullName">Full Name*</label>
+                    <input type="text" id="fullName" class="form-control" required>
+                    <div class="error-message" id="nameError">Please enter your full name</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address*</label>
+                    <input type="email" id="email" class="form-control" required>
+                    <div class="error-message" id="emailError">Please enter a valid email address</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone Number*</label>
+                    <input type="tel" id="phone" class="form-control" required>
+                    <div class="error-message" id="phoneError">Please enter a valid phone number</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="enrollmentNumber">Enrollment Number*</label>
+                    <input type="text" id="enrollmentNumber" class="form-control" required>
+                    <div class="error-message" id="enrollmentError">Please enter your enrollment number</div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Select Clubs* (You can select multiple)</label>
+                    <div class="club-options">
+                        <div class="club-option">
+                            <input type="checkbox" id="qubitClub" name="clubs" value="QUBIT">
+                            <label for="qubitClub">QUBIT Club</label>
+                        </div>
+                        <div class="club-option">
+                            <input type="checkbox" id="cygnusClub" name="clubs" value="Cygnus">
+                            <label for="cygnusClub">Cygnus Club</label>
+                        </div>
+                        <div class="club-option">
+                            <input type="checkbox" id="pixelClub" name="clubs" value="Pixel">
+                            <label for="pixelClub">Pixel Club</label>
+                        </div>
+                        <div class="club-option">
+                            <input type="checkbox" id="sportsClub" name="clubs" value="Sports">
+                            <label for="sportsClub">Sports Club</label>
+                        </div>
+                    </div>
+                    <div class="error-message" id="clubsError">Please select at least one club</div>
+                </div>
+                
+                <div class="submit-container">
+                    <button type="submit" class="submit-btn">Submit Application</button>
+                    <div id="loadingSpinner" class="spinner"></div>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <main class="container content">
+        <h1>Welcome to National Institute of Technology Manipur Clubs</h1>
+        <p>Explore our diverse range of student clubs and organizations. Whether you're interested in academics, sports, or creative arts, there's something for everyone at NIT Manipur.</p>
+        <p>Click on any of the club categories in the header to learn more about specific clubs and how to get involved.</p>
+        
+        <section class="vision-mission">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 pr-3 about-nit">
+                        <h2 class="main-heading">About NIT Manipur</h2>
+                        <img src="./pictures/nit.png" class="img-fluid rounded" alt="NIT Manipur Campus">
+                        <p>NIT Manipur started its first session on 2nd August 2010 with only three branches of Engineering namely - Electrical Engineering, Electronics &amp; Communication Engineering and Computer Science &amp; Engineering at Government Polytechnic, Takyelpat Campus. It is presently functioning in its Permanent Campus at Langol, Imphal, with two more Engineering Branches namely - Mechanical Engineering and Civil Engineering. The institute has acquired 341.5 acres of land in lush green areas of Langol, Imphal.</p>
+                        <a href="about.html" class="readmore">Read More</a>
+                    </div>
+                    
+                    <div class="col-md-6 pl-3">
+                        <div class="director">
+                            <h2>Director's Message</h2>
+                            <img src="https://www.nitmanipur.ac.in/images/Prof_Somayajulu_director.jpeg" class="img-fluid" alt="Prof. D V L N Somayajulu">
+                            
+                            <div class="director-cont">
+                                <h3>Prof. D V L N Somayajulu</h3>
+                                <h4>Director, NIT Manipur</h4>
+                                <p>Prof. Somayajulu has 35 years of experience in teaching, research, consultancy, and outreach works in the field of Computer Science and Engineering. He joined as Director of National Institute of Technology Manipur on June 1st, 2024. His academic career started in NIT(REC) Warangal in the month of September 1988 and promoted as Professor of Computer Science &amp; Engineering in 2006.</p>
+                                <a href="director.html" class="readmore director-link">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <h1>Our Clubs</h1>
+        <section class="facility-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="box">
+                            <img src="./pictures/qubit.jpg" class="thumb-icon" alt="QUBIT Club logo">
+                            <p>QUBIT</p>
+                            <a href="qubit-club.html" class="readmore">Know More</a>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="box">
+                            <img src="./pictures/cygnus.jpg" class="thumb-icon" alt="Cygnus Club logo">
+                            <p>Cygnus</p>
+                            <a href="cygnus-club.html" class="readmore">Know More</a>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="box">
+                            <img src="./pictures/pixel.jpg" class="thumb-icon" alt="Pixel Club logo">
+                            <p>Pixel</p>
+                            <a href="pixel-club.html" class="readmore">Know More</a>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="box">
+                            <img src="./pictures/inertia.jpg" class="thumb-icon" alt="Sports Club logo">
+                            <p>Inertia</p>
+                            <a href="sports-club.html" class="readmore">Know More</a>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="box">
+                            <img src="./pictures/reverb.png" class="thumb-icon" alt="Sports Club logo">
+                            <p>Reverb Collective</p>
+                            <a href="sports-club.html" class="readmore">Know More</a>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="box">
+                            <img src="./pictures/sports.jpg" class="thumb-icon" alt="Sports Club logo">
+                            <p>Sports</p>
+                            <a href="sports-club.html" class="readmore">Know More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <h1>ReGen</h1>
+        <!-- ReGen Hackathon Section -->
+<!-- ReGen Hackathon Section -->
+<section class="regen-section">
+    <div class="container">
+        <h1>ReGen Hackathon 2025</h1>
+        <p class="section-description">An annual innovation challenge hosted by NIT Manipur where brilliant minds compete to solve real-world problems through technology.</p>
+        
+        <!-- Showcase Gallery -->
+        <div class="gallery-container">
+            <div class="gallery-controls">
+                <button id="prevBtn" class="gallery-control-btn"><span>&lt;</span></button>
+                <button id="nextBtn" class="gallery-control-btn"><span>&gt;</span></button>
+            </div>
+            <div class="gallery-wrapper">
+                <div class="gallery-track">
+                    <div class="gallery-slide">
+                        <img src="./pictures/1st.JPG" alt="ReGen Hackathon participants">
+                        <div class="slide-caption">
+                            <h3>Opening Ceremony</h3>
+                            <p>Kickoff of ReGen 2025 with over 300 participants from across India</p>
+                        </div>
+                    </div>
+                    <div class="gallery-slide">
+                        <img src="./pictures/2nd.JPG" alt="Teams coding at the hackathon">
+                        <div class="slide-caption">
+                            <h3>48 Hours of Innovation</h3>
+                            <p>Teams working tirelessly to bring their ideas to life</p>
+                        </div>
+                    </div>
+                    <div class="gallery-slide">
+                        <img src="./pictures/3rd.JPG" alt="Mentoring session">
+                        <div class="slide-caption">
+                            <h3>Mentorship Sessions</h3>
+                            <p>Industry experts providing guidance to participants</p>
+                        </div>
+                    </div>
+                    <div class="gallery-slide">
+                        <img src="./pictures/4th.JPG" alt="Team presentation">
+                        <div class="slide-caption">
+                            <h3>Final Presentations</h3>
+                            <p>Teams pitching their solutions to the judging panel</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-indicators">
+                <span class="indicator active"></span>
+                <span class="indicator"></span>
+                <span class="indicator"></span>
+                <span class="indicator"></span>
+            </div>
+        </div>
+        
+        <!-- Rest of the code remains unchanged -->
+         <div class="regen-knowMore">
+            <a href="#" class="readmore" style="color: white; padding:10px 20px;">Know More</a>
+         </div>
+        
+    </div>
+   
+</section>
+    </main>
+
+    <script src="script.js"></script>
+    <script src="background.js"></script>
+</body>
+</html>

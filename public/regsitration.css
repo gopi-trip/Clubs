@@ -1,0 +1,148 @@
+/* Form phase visibility styling */
+.form-phase {
+    display: none;
+}
+
+.form-phase.active {
+    display: block;
+}
+
+/* Progress bar styling */
+.progress-container {
+    margin-bottom: 30px;
+}
+
+.progress-bar {
+    background-color: #e0e0e0;
+    height: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.progress {
+    background-color: #4CAF50;
+    height: 100%;
+    width: 33.33%;
+    transition: width 0.3s ease;
+}
+
+.progress-steps {
+    display: flex;
+    justify-content: space-between;
+}
+
+.step {
+    color: #777;
+    font-weight: bold;
+}
+
+.step.active {
+    color: #4CAF50;
+}
+
+/* Navigation buttons */
+.form-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.next-btn, .back-btn, .submit-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    color:white;
+}
+
+.next-btn {
+    background-color: #4CAF50;
+    color: white;
+    margin-left: auto;
+}
+
+.back-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+}
+
+.submit-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Spinner for loading state */
+.spinner {
+    display: none;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(0,0,0,0.1);
+    border-radius: 50%;
+    border-top-color: #4CAF50;
+    animation: spin 1s ease-in-out infinite;
+    margin-left: 10px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Error messages */
+.error-message {
+    color: #d32f2f;
+    font-size: 0.85rem;
+    margin-top: 5px;
+    display: none;
+}
+
+/* Status messages */
+.status-message {
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    display: none;
+}
+
+.status-success {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #a5d6a7;
+}
+
+.status-error {
+    background-color: #ffebee;
+    color: #c62828;
+    border: 1px solid #ef9a9a;
+}
+
+/* File upload styling */
+.file-upload-container {
+    display: flex;
+    align-items: center;
+}
+
+.file-input {
+    position: absolute;
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.file-upload-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+#fileChosen {
+    margin-left: 10px;
+    color: #555;
+}
