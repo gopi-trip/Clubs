@@ -19,4 +19,22 @@ app.use(express.json({limit:"200kb"}))
 app.use(express.urlencoded({extended: true,limit: "200kb"}))
 app.use(express.static("public"))
 
+// Routes
+app.use("/api/v1/users", userRoutes);
+
+// Error Handling Middleware
+app.use((err, req, res, next) => {
+    console.error(err);
+    
+    const statusCode = err instanceof ApiError ? err.statusCode : 500;
+    const message = err.message || "Something went wrong";
+    const errors = err.errors || [];
+    
+    return res.status(statusCode).json({
+        success: false,
+        statusCode,
+        message,
+        errors
+    });
+});
 export { app }

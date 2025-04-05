@@ -140,40 +140,84 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Form submission function
-    function submitForm() {
-        // Show loading spinner
-        loadingSpinner.style.display = 'block';
-        
-        // Collect form data
-        const formData = {
-            fullName: fullNameInput.value,
-            email: emailInput.value,
-            phone: phoneInput.value,
-            enrollmentNumber: enrollmentInput.value,
-            clubs: Array.from(clubCheckboxes)
-                .filter(checkbox => checkbox.checked)
-                .map(checkbox => checkbox.value)
-        };
-        
-        // Simulate API call with setTimeout (replace with actual API call)
-        setTimeout(function() {
-            // Hide loading spinner
-            loadingSpinner.style.display = 'none';
-            
-            // Show success message
-            statusSuccess.textContent = 'Your application has been submitted successfully!';
-            statusSuccess.style.display = 'block';
-            
-            // Reset form after successful submission
-            joinClubForm.reset();
-            
-            // Hide success message after 5 seconds
-            setTimeout(function() {
-                statusSuccess.style.display = 'none';
-                joinClubModal.style.display = 'none';
-            }, 5000);
-        }, 1500);
+    // Form submission function
+function submitForm() {
+    // Show loading spinner
+    loadingSpinner.style.display = 'block';
+    
+    // Create FormData object for file upload
+    const formData = new FormData();
+    formData.append('fullName', fullNameInput.value);
+    formData.append('email', emailInput.value);
+    formData.append('phoneNumber', phoneInput.value);
+    formData.append('enrollmentNumber', enrollmentInput.value);
+    
+    // Get the ID card file
+    const idCardInput = document.getElementById('idCardInput');
+    if (idCardInput && idCardInput.files.length > 0) {
+        formData.append('idCard', idCardInput.files[0]);
     }
+    
+    // Get course details
+    const courseTypeInput = document.getElementById('courseType');
+    const semesterInput = document.getElementById('semester');
+    const yearInput = document.getElementById('year');
+    
+    formData.append('courseType', courseTypeInput.value);
+    formData.append('semester', semesterInput.value);
+    formData.append('year', yearInput.value);
+    
+    // Get selected clubs
+    Array.from(clubCheckboxes)
+        .filter(checkbox => checkbox.checked)
+        .forEach(checkbox => {
+            formData.append('clubs', checkbox.value);
+        });
+    
+    // Make API call
+    fetch('/api/v1/users/register', {
+        method: 'POST',
+        body: formData,
+        // Don't set Content-Type header, it will be set automatically with boundary parameter
+    })
+    .then(async response => {
+        if (!response.ok) {
+            const err = await response.json();
+            throw new Error(err.message || 'Registration failed');
+        }
+        return response.json();
+    })
+    .then(data => {
+        // Hide loading spinner
+        loadingSpinner.style.display = 'none';
+        
+        // Show success message
+        statusSuccess.textContent = 'Your application has been submitted successfully!';
+        statusSuccess.style.display = 'block';
+        
+        // Reset form after successful submission
+        joinClubForm.reset();
+        
+        // Hide success message after 5 seconds
+        setTimeout(function() {
+            statusSuccess.style.display = 'none';
+            joinClubModal.style.display = 'none';
+        }, 5000);
+    })
+    .catch(error => {
+        // Hide loading spinner
+        loadingSpinner.style.display = 'none';
+        
+        // Show error message
+        statusError.textContent = error.message;
+        statusError.style.display = 'block';
+        
+        // Hide error message after 5 seconds
+        setTimeout(function() {
+            statusError.style.display = 'none';
+        }, 5000);
+    });
+}
     
     // Helper functions for error handling
     function showError(errorElement) {
